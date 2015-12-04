@@ -1,0 +1,43 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          zerofree
+# Required-Start:
+# Required-Stop:     $local_fs
+# Default-Start:     3
+# Default-Stop:      0 6
+# Short-Description: Clean up deleted files.
+### END INIT INFO
+
+set -e
+
+ROOTFS="/dev/mapper/sharemind--sdk--vg-root"
+
+do_stop() {
+    if [ -f /usr/sbin/zerofree ]; then
+        if [ -f /zerofree ] || grep -q -s -w -i "zerofree" /proc/cmdline; then
+            echo "Running zerofree on / ..."
+            mount -n -o remount,ro -t ext2 /
+            /usr/sbin/zerofree "${ROOTFS}"
+            mount -o remount,rw /
+            echo "Running zerofree on / ... DONE"
+        fi
+    rm -f /zerofree 2>/dev/null
+    fi
+}
+
+case "$1" in
+    stop|status)
+        # No-op
+        ;;
+    restart|reload|force-reload)
+        echo "Error: argument '$1' not supported" >&2
+        exit 3
+        ;;
+    start)
+        do_stop
+        ;;
+    *)
+        echo "Usage: zerofree [start|stop]" >&2
+        exit 3
+        ;;
+esac

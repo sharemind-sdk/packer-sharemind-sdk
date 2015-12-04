@@ -1,0 +1,4 @@
+#!/bin/sh
+PREFIX="/usr/local"
+
+"${PREFIX}/lib/node_modules/profile-log-visualizer/node_modules/electron-prebuilt/dist/electron" "${PREFIX}/lib/node_modules/profile-log-visualizer" $@ 2>/dev/null

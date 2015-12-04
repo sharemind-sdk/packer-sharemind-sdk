@@ -1,0 +1,81 @@
+{
+    "variables": {
+        "headless": "true",
+        "iso_url": "http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/debian-8.2.0-amd64-netinst.iso",
+        "iso_checksum": "923cd1bfbfa62d78aecaa92d919ee54a95c8fca834b427502847228cf06155e7243875f59279b0bf6bfd1b579cbe2f1bc80528a265dafddee9a9d2a197ef3806",
+        "iso_checksum_type": "sha512",
+        "output_directory": "output",
+        "ssh_password": "sharemind",
+        "ssh_username": "sharemind",
+        "ssh_wait_timeout": "30m",
+        "vm_cpus": "2",
+        "vm_disk": "50000",
+        "vm_domain": "sharemind-sdk",
+        "vm_export_cpus": "1",
+        "vm_export_memory": "1024",
+        "vm_hostname": "sharemind-sdk",
+        "vm_memory": "1024",
+        "vm_name": "sharemind-sdk-base",
+        "vm_user_fullname": "Sharemind-SDK"
+    },
+    "builders": [
+        {
+            "type": "virtualbox-iso",
+            "boot_command": [
+                "<esc><wait>",
+                "install <wait>",
+                "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+                "debian-installer=en_US <wait>",
+                "auto <wait>",
+                "locale=en_US <wait>",
+                "kbd-chooser/method=us <wait>",
+                "netcfg/get_hostname={{ user `vm_hostname` }} <wait>",
+                "netcfg/get_domain={{ user `vm_domain` }} <wait>",
+                "fb=false <wait>",
+                "debconf/frontend=noninteractive <wait>",
+                "console-setup/ask_detect=false <wait>",
+                "console-keymaps-at/keymap=us <wait>",
+                "keyboard-configuration/xkb-keymap=us <wait>",
+                "passwd/root-login=false <wait>",
+                "passwd/user-fullname={{ user `vm_user_fullname` }} <wait>",
+                "passwd/username={{ user `ssh_username` }} <wait>",
+                "passwd/user-password={{ user `ssh_password` }} <wait>",
+                "passwd/user-password-again={{ user `ssh_password` }} <wait>",
+                "<enter><wait>"
+            ],
+            "disk_size": "{{ user `vm_disk` }}",
+            "format": "ova",
+            "guest_additions_mode": "disable",
+            "guest_os_type": "Debian_64",
+            "headless": "{{ user `headless` }}",
+            "http_directory": "http",
+            "iso_checksum": "{{ user `iso_checksum` }}",
+            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+            "iso_url": "{{ user `iso_url` }}",
+            "output_directory": "{{ user `output_directory` }}",
+            "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
+            "ssh_password": "{{ user `ssh_password` }}",
+            "ssh_username": "{{ user `ssh_username` }}",
+            "ssh_wait_timeout": "{{ user `ssh_wait_timeout` }}",
+            "vboxmanage": [
+                ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_cpus` }}"],
+                ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_memory` }}"],
+                ["modifyvm", "{{ .Name }}", "--vram", "12"]
+            ],
+            "vboxmanage_post": [
+                ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],
+                ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_export_memory` }}"]
+            ],
+            "vm_name": "{{ user `vm_name` }}"
+        }
+    ],
+    "provisioners": [
+        {
+            "execute_command": "echo '{{ user `ssh_password` }}' | sudo -S sh '{{ .Path }}'",
+            "scripts": [
+                "scripts/base.sh"
+            ],
+            "type": "shell"
+        }
+    ]
+}

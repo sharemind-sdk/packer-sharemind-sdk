@@ -1,0 +1,11 @@
+#!/bin/sh
+PREFIX="/usr/local"
+
+die () {
+    echo >&2 "$@"
+    exit 1
+}
+
+[ "$#" -gt 0 ] || die "Usage: ${0} [options] <node0-profile.csv> [node1-profile.csv] [node2-profile.csv] ..."
+
+node --max-old-space-size=4096 "${PREFIX}/lib/node_modules/profile-log-visualizer/app/cli.js" $@
