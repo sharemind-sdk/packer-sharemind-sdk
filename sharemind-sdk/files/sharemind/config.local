@@ -1,6 +1,8 @@
 INCLUDE("${CMAKE_CURRENT_SOURCE_DIR}/profiles/common.cmake" REQUIRED)
 LIST(REMOVE_ITEM Thing_SKIP exprtk libsortnetwork)
 
+SET(CMAKE_BUILD_TYPE Release)
+
 SET(SHAREMIND_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/prefix")
 
 SET(F "${CMAKE_CURRENT_BINARY_DIR}/myconfig.cmake")
