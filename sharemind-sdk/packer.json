@@ -108,6 +108,7 @@
             ],
             "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
             "scripts": [
+                "scripts/root/virtualbox.sh",
                 "scripts/root/cleanup.sh",
                 "scripts/root/reboot.sh"
             ]

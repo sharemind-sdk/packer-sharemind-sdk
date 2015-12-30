@@ -1,5 +1,5 @@
 #!/bin/sh
-#set -e
+set -e
 
 if test -f .vbox_version; then
     # Install dkms for dynamic compiles
@@ -11,8 +11,8 @@ if test -f .vbox_version; then
     # Install the VirtualBox guest additions, assumes "attached"
     mkdir /mnt/vboxguestadditions
     mount -t iso9660 -o loop VBoxGuestAdditions.iso /mnt/vboxguestadditions
-    sh /mnt/vboxguestadditions/VBoxLinuxAdditions.run
     # TODO fix this.
+    sh /mnt/vboxguestadditions/VBoxLinuxAdditions.run || true
     umount /mnt/vboxguestadditions || true
     rmdir /mnt/vboxguestadditions || true
     rm VBoxGuestAdditions.iso || true
