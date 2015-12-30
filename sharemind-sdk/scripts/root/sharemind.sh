@@ -41,8 +41,15 @@ sharemind_build() {
 
 sharemind_build "${SM_REPO_URL}" "${SM_REPO_PATH}" "${SM_REPO_REV}" "${SM_BUILD_PATH}" "${SM_INSTALL_PATH}" "${SM_CONFIG_PATH}"
 
-# /etc/profile
-sed -i "s%PATH=\"\\([^\"]\\+\\)\"%PATH=\"${SM_INSTALL_PATH}/bin:\1\"%g" /etc/profile
+# /etc/bash.bashrc
+cat << EOF >> /etc/bash.bashrc
+if [ -z "\$PATH" ]; then
+    PATH="${SM_INSTALL_PATH}/bin"
+else
+    PATH="${SM_INSTALL_PATH}/bin:\$PATH"
+fi
+export PATH
+EOF
 
 # /etc/ld.so.conf
 echo "${SM_INSTALL_PATH}/lib" > /etc/ld.so.conf.d/sharemind.conf
