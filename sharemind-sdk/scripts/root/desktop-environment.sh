@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-test -n "${DE_AUTOLOGIN_USERNAME}" || false
-test -n "${DE_DESKTOP_BG_COLOR}" || false
-test -n "${DE_DESKTOP_BG_MODE}" || false
+test -n "${DE_AUTOLOGIN_USERNAME}"
+test -n "${DE_DESKTOP_BG_COLOR}"
+test -n "${DE_DESKTOP_BG_MODE}"
 
 # Install dependencies
 apt-get install --yes lxde

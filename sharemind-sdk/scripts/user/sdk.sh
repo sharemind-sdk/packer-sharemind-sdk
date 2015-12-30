@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-test -n "${SDK_FILES_PATH}" || false
-test -n "${SDK_DESKTOP_ICONS_PATH}" || false
-test -n "${SDK_SM_CONFIG_PATH}" || false
+test -n "${SDK_FILES_PATH}"
+test -n "${SDK_DESKTOP_ICONS_PATH}"
+test -n "${SDK_SM_CONFIG_PATH}"
 
 # Install SDK files
 mkdir --parents ~/Sharemind-SDK

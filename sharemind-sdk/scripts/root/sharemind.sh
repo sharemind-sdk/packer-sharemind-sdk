@@ -1,12 +1,12 @@
 #!/bin/sh
 set -e
 
-test -n "${SM_REPO_URL}" || false
-test -n "${SM_REPO_PATH}" || false
-test -n "${SM_REPO_REV}" || false
-test -n "${SM_BUILD_PATH}" || false
-test -n "${SM_INSTALL_PATH}" || false
-test -n "${SM_CONFIG_PATH}" || false
+test -n "${SM_REPO_URL}"
+test -n "${SM_REPO_PATH}"
+test -n "${SM_REPO_REV}"
+test -n "${SM_BUILD_PATH}"
+test -n "${SM_INSTALL_PATH}"
+test -n "${SM_CONFIG_PATH}"
 
 # Install packages
 apt-get install --yes cmake git make gcc g++ libbz2-dev libcrypto++-dev libbison-dev flex libmpfr-dev libtbb-dev libhdf5-dev

@@ -1,11 +1,11 @@
 #!/bin/sh
 set -e
 
-test -n "${PV_REPO_URL}" || false
-test -n "${PV_REPO_PATH}" || false
-test -n "${PV_REPO_REV}" || false
-test -n "${PV_INSTALL_PATH}" || false
-test -n "${PV_SCRIPTS_PATH}" || false
+test -n "${PV_REPO_URL}"
+test -n "${PV_REPO_PATH}"
+test -n "${PV_REPO_REV}"
+test -n "${PV_INSTALL_PATH}"
+test -n "${PV_SCRIPTS_PATH}"
 
 # Install packages
 apt-get install --yes git npm nodejs nodejs-legacy libnss3-dev

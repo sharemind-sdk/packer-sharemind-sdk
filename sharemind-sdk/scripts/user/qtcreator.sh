@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-test -n "${QTCREATOR_CONFIG_PATH}" || false
+test -n "${QTCREATOR_CONFIG_PATH}"
 
 # Configure qtcreator
 mkdir --parents ~/.config

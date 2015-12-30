@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-test -n "${SDK_BG_IMG_PATH}" || false
-test -n "${SDK_INSTALL_PATH}" || false
-test -n "${SDK_SCRIPTS_PATH}" || false
+test -n "${SDK_BG_IMG_PATH}"
+test -n "${SDK_INSTALL_PATH}"
+test -n "${SDK_SCRIPTS_PATH}"
 
 # Install dependencies
 apt-get install --yes iceweasel

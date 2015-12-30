@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-test -n "${CLEANUP_ZEROFREE_SYSTEMD_SERVICE}" || false
-test -n "${CLEANUP_ZEROFREE_SERVICE}" || false
+test -n "${CLEANUP_ZEROFREE_SYSTEMD_SERVICE}"
+test -n "${CLEANUP_ZEROFREE_SERVICE}"
 
 # Install packages
 apt-get install --yes zerofree
