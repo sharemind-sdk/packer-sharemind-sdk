@@ -1,7 +1,11 @@
 #!/bin/sh
 set -e
 
+# Use the 'httpredir' Debian mirror
+sed -i'' -e 's/\(http\|ftp\).us/httpredir/' /etc/apt/sources.list
+
 # Update
+apt-get clean
 apt-get update
 apt-get upgrade --yes
 
