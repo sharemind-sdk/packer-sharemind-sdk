@@ -51,20 +51,20 @@ void main() {
     bool [[1]] pubMask = {true, false, true, false, true, false, true, false, true, false};
 
     { // pd_aby
-        pd_aby uint [[1]] val = pubVal;
-        pd_aby uint [[1]] mask = (uint) pubMask;
+        pd_aby uint64 [[1]] val = pubVal;
+        pd_aby uint64 [[1]] mask = (uint) pubMask;
         uint average = vecAvg(val, mask);
         print(average);
     }
     { // pd_shared3p
-        pd_shared3p uint [[1]] val = pubVal;
-        pd_shared3p uint [[1]] mask = (uint) pubMask;
+        pd_shared3p uint64 [[1]] val = pubVal;
+        pd_shared3p uint64 [[1]] mask = (uint) pubMask;
         uint average = vecAvg(val, mask);
         print(average);
     }
     { // pd_spdz_fresco
-        pd_spdz_fresco uint [[1]] val = pubVal;
-        pd_spdz_fresco uint [[1]] mask = (uint) pubMask;
+        pd_spdz_fresco uint64 [[1]] val = pubVal;
+        pd_spdz_fresco uint64 [[1]] mask = (uint) pubMask;
         uint average = vecAvg(val, mask);
         print(average);
     }

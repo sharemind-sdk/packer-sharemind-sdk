@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -e -x
 
 test -n "${SM_REPO_URL}"
 test -n "${SM_REPO_PATH}"
@@ -12,7 +12,7 @@ test -n "${SM_CONFIG_PATH}"
 apt-get install --yes cmake git make gcc g++ libbz2-dev libcrypto++-dev libbison-dev flex libmpfr-dev libtbb-dev libhdf5-dev
 apt-get install --yes libboost-filesystem-dev libboost-iostreams-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 apt-get install --yes --no-install-recommends doxygen
-apt-get install --yes help2man
+apt-get install --yes help2man redis-server
 
 sharemind_build() {
     local REPO_URL="$1"

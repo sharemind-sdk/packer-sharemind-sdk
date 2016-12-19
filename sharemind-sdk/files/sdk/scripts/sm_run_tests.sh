@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "x${BUILD_SDK_PREFIX}" = "x" ]; then
-    BUILD_SDK_PREFIX="/usr/local/src/build-sdk"
+    BUILD_SDK_PREFIX="/usr/local/src/sharemind-sdk.git"
 fi
 
 echo "Using BUILD_SDK_PREFIX='${BUILD_SDK_PREFIX}'"

@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -e -x
 
 if test -f .vbox_version; then
     # Install dkms for dynamic compiles
@@ -16,7 +16,4 @@ if test -f .vbox_version; then
     umount /mnt/vboxguestadditions || true
     rmdir /mnt/vboxguestadditions || true
     rm VBoxGuestAdditions.iso || true
-
-    # Start the newly build driver
-    /etc/init.d/vboxadd start
 fi

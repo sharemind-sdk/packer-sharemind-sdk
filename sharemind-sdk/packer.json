@@ -3,9 +3,9 @@
         "files_destination": "/tmp/files",
         "headless": "true",
         "output_directory": "output",
-        "profile_visalizer_reporev": "ede1afdb074d8af9cfe4a9ff13a2b1a7ecde18fc",
+        "profile_visalizer_reporev": "8a054226bfa80c0297cc42779db9c2730c33b6b7",
         "profile_visalizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
-        "sharemind_reporev": "12345165b5b9a58c3c7153ed911272a4407664e8",
+        "sharemind_reporev": "86c8832ff8e0186eaac6b57283dfeb4a7da055eb",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
@@ -16,9 +16,9 @@
         "vm_export_producturl": "https://sharemind.cyber.ee/",
         "vm_export_vendor": "Cybernetica AS",
         "vm_export_vendorurl": "https://cyber.ee/",
-        "vm_export_version": "2015.12",
+        "vm_export_version": "2016.12",
         "vm_memory": "1024",
-        "vm_name": "2015.12-sharemind-sdk-debian-8.2.0-amd64",
+        "vm_name": "2016.12-sharemind-sdk-debian-8.6.0-amd64",
         "vm_source_path": "../sharemind-sdk-base/output/sharemind-sdk-base.ova"
     },
     "builders": [
@@ -96,6 +96,7 @@
                 "QTCREATOR_CONFIG_PATH={{ user `files_destination` }}/qtcreator"
             ],
             "scripts": [
+                "scripts/user/desktop-environment.sh",
                 "scripts/user/qtcreator.sh",
                 "scripts/user/sdk.sh"
             ]

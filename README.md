@@ -8,8 +8,8 @@ The following packer builders are currently supported:
 
 Requirements:
 
-* [packer](https://packer.io/) (tested with version 0.8.7)
-* [VirtualBox](https://www.virtualbox.org/) (tested with version 4.3.32)
+* [packer](https://packer.io/) (tested with version 0.12.0)
+* [VirtualBox](https://www.virtualbox.org/) (tested with version 5.1.8)
 
 Build:
 
@@ -27,7 +27,7 @@ packer build packer.json
 ## Copyright and license
 
 ```
-Copyright (C) 2015 Cybernetica
+Copyright (C) 2016 Cybernetica
 
 Research/Commercial License Usage
 Licensees holding a valid Research License or Commercial License
