@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${QTCREATOR_CONFIG_PATH}"
 

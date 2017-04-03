@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${CLEANUP_ZEROFREE_SYSTEMD_SERVICE}"
 test -n "${CLEANUP_ZEROFREE_SERVICE}"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e -x
 
 if test -f .vbox_version; then
@@ -11,9 +11,9 @@ if test -f .vbox_version; then
     # Install the VirtualBox guest additions, assumes "attached"
     mkdir /mnt/vboxguestadditions
     mount -t iso9660 -o loop VBoxGuestAdditions.iso /mnt/vboxguestadditions
-    # TODO fix this.
-    sh /mnt/vboxguestadditions/VBoxLinuxAdditions.run || true
-    umount /mnt/vboxguestadditions || true
-    rmdir /mnt/vboxguestadditions || true
-    rm VBoxGuestAdditions.iso || true
+    sh /mnt/vboxguestadditions/VBoxLinuxAdditions.run --nox11
+    sleep 1
+    umount /mnt/vboxguestadditions
+    rmdir /mnt/vboxguestadditions
+    rm VBoxGuestAdditions.iso
 fi

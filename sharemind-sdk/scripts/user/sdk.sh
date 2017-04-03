@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${SDK_FILES_PATH}"
 test -n "${SDK_DESKTOP_ICONS_PATH}"

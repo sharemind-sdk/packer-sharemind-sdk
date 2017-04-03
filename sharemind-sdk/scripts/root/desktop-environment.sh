@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${DE_AUTOLOGIN_USERNAME}"
 test -n "${DE_DESKTOP_BG_COLOR}"

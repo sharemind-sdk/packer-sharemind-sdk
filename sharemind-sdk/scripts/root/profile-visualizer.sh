@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${PV_REPO_URL}"
 test -n "${PV_REPO_PATH}"

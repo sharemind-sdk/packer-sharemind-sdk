@@ -1,5 +1,5 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -e -x
 
 test -n "${SDK_BG_IMG_PATH}"
 test -n "${SDK_INSTALL_PATH}"

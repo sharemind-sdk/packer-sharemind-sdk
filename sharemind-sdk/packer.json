@@ -5,7 +5,7 @@
         "output_directory": "output",
         "profile_visalizer_reporev": "8a054226bfa80c0297cc42779db9c2730c33b6b7",
         "profile_visalizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
-        "sharemind_reporev": "86c8832ff8e0186eaac6b57283dfeb4a7da055eb",
+        "sharemind_reporev": "58f7cd996804b45947a43ae01ac52b620a8a06be",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
@@ -16,9 +16,9 @@
         "vm_export_producturl": "https://sharemind.cyber.ee/",
         "vm_export_vendor": "Cybernetica AS",
         "vm_export_vendorurl": "https://cyber.ee/",
-        "vm_export_version": "2016.12",
+        "vm_export_version": "2017.03",
         "vm_memory": "1024",
-        "vm_name": "2016.12-sharemind-sdk-debian-8.6.0-amd64",
+        "vm_name": "2017.03-sharemind-sdk-debian-8.7.1-amd64",
         "vm_source_path": "../sharemind-sdk-base/output/sharemind-sdk-base.ova"
     },
     "builders": [
@@ -68,6 +68,7 @@
                 "PV_REPO_URL={{ user `profile_visalizer_repourl` }}",
                 "PV_INSTALL_PATH=/usr/local",
                 "PV_SCRIPTS_PATH={{ user `files_destination` }}/profile-visualizer/scripts",
+                "QTCREATOR_SECREC_MIME_PATH={{ user `files_destination` }}/qtcreator/mime/secrec.xml",
                 "SDK_BG_IMG_PATH={{ user `files_destination` }}/sdk/desktop-bg-emulator.png",
                 "SDK_INSTALL_PATH=/usr/local",
                 "SDK_SCRIPTS_PATH={{ user `files_destination` }}/sdk/scripts",
@@ -93,7 +94,7 @@
                 "SDK_FILES_PATH={{ user `files_destination` }}/sdk/sdk-files",
                 "SDK_DESKTOP_ICONS_PATH={{ user `files_destination` }}/sdk/Desktop",
                 "SDK_SM_CONFIG_PATH={{ user `files_destination` }}/sdk/sharemind-config",
-                "QTCREATOR_CONFIG_PATH={{ user `files_destination` }}/qtcreator"
+                "QTCREATOR_CONFIG_PATH={{ user `files_destination` }}/qtcreator/config"
             ],
             "scripts": [
                 "scripts/user/desktop-environment.sh",
