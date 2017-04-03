@@ -27,7 +27,7 @@ packer build packer.json
 ## Copyright and license
 
 ```
-Copyright (C) 2016 Cybernetica
+Copyright (C) 2017 Cybernetica
 
 Research/Commercial License Usage
 Licensees holding a valid Research License or Commercial License
