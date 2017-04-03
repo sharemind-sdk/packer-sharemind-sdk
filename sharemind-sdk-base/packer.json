@@ -7,7 +7,7 @@
         "output_directory": "output",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
-        "ssh_wait_timeout": "30m",
+        "ssh_wait_timeout": "60m",
         "vm_cpus": "2",
         "vm_disk": "50000",
         "vm_domain": "sharemind-sdk",
