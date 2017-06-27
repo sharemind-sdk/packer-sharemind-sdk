@@ -18,7 +18,7 @@
         "vm_export_vendorurl": "https://cyber.ee/",
         "vm_export_version": "2017.03",
         "vm_memory": "1024",
-        "vm_name": "2017.03-sharemind-sdk-debian-8.7.1-amd64",
+        "vm_name": "2017.03-sharemind-sdk-debian-8.8.0-amd64",
         "vm_source_path": "../sharemind-sdk-base/output/sharemind-sdk-base.ova"
     },
     "builders": [
