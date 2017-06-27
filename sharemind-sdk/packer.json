@@ -5,7 +5,7 @@
         "output_directory": "output",
         "profile_visalizer_reporev": "8a054226bfa80c0297cc42779db9c2730c33b6b7",
         "profile_visalizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
-        "sharemind_reporev": "58f7cd996804b45947a43ae01ac52b620a8a06be",
+        "sharemind_reporev": "d2ef5032c6d39e9c00340caecccd4d24e7364374",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
@@ -16,9 +16,9 @@
         "vm_export_producturl": "https://sharemind.cyber.ee/",
         "vm_export_vendor": "Cybernetica AS",
         "vm_export_vendorurl": "https://cyber.ee/",
-        "vm_export_version": "2017.03",
+        "vm_export_version": "2017.06",
         "vm_memory": "1024",
-        "vm_name": "2017.03-sharemind-sdk-debian-8.8.0-amd64",
+        "vm_name": "2017.06-sharemind-sdk-debian-8.8.0-amd64",
         "vm_source_path": "../sharemind-sdk-base/output/sharemind-sdk-base.ova"
     },
     "builders": [
@@ -53,9 +53,13 @@
     ],
     "provisioners": [
         {
+            "type": "shell",
+            "inline": ["mkdir -p {{ user `files_destination` }}"]
+        },
+        {
             "type": "file",
             "destination": "{{ user `files_destination` }}",
-            "source": "files"
+            "source": "files/"
         },
         {
             "type": "shell",
