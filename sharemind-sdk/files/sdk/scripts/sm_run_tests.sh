@@ -15,7 +15,7 @@ fi
 
 echo "Using SHAREMIND_INSTALL_PREFIX='${SHAREMIND_INSTALL_PREFIX}'"
 
-EMULATOR="${SHAREMIND_INSTALL_PREFIX}/bin/Emulator"
+EMULATOR="${SHAREMIND_INSTALL_PREFIX}/bin/sharemind-emulator"
 EMULATOR_CFG=`test -f ${XDG_CONFIG_HOME:-~/.config}/sharemind/emulator.cfg && echo ${XDG_CONFIG_HOME:-~/.config}/sharemind/emulator.cfg`
 SCC="${SHAREMIND_INSTALL_PREFIX}/bin/scc"
 STDLIB="${SHAREMIND_INSTALL_PREFIX}/lib/sharemind/stdlib"
