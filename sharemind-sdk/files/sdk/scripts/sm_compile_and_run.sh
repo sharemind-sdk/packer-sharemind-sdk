@@ -9,7 +9,6 @@ fi
 echo "Using SHAREMIND_INSTALL_PREFIX='${SHAREMIND_INSTALL_PREFIX}'"
 
 EMULATOR="${SHAREMIND_INSTALL_PREFIX}/bin/sharemind-emulator"
-EMULATOR_CFG=`test -f ${XDG_CONFIG_HOME:-~/.config}/sharemind/emulator.cfg && echo ${XDG_CONFIG_HOME:-~/.config}/sharemind/emulator.cfg`
 EMULATOR_PROFILE="emulator-profile.csv"
 SCC="${SHAREMIND_INSTALL_PREFIX}/bin/scc"
 STDLIB="${SHAREMIND_INSTALL_PREFIX}/lib/sharemind/stdlib"
@@ -36,7 +35,7 @@ for SC in "$@"; do
     cmp -s "${SC_CPY}" "${SC}"
     if [ $? -eq 0 ]; then
         echo "Up-to-date: '${SB}'"
-    else 
+    else
         echo "Compiling: '${SC}' to '${SB}'"
         "${SCC}" --include "${SC_ABSSP}" --include "${STDLIB}" --input "${SC}" --output "${SB}"
         if [ $? -ne 0 ]; then
@@ -46,7 +45,7 @@ for SC in "$@"; do
     fi
 
     echo "Running: '${SB}'"
-    "${EMULATOR}" --conf="${EMULATOR_CFG}" -d "${SB}"
+    "${EMULATOR}" -d "${SB}"
     if [ $? -ne 0 ]; then
         exit 1
     fi
