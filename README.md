@@ -8,8 +8,8 @@ The following packer builders are currently supported:
 
 Requirements:
 
-* [packer](https://packer.io/) (tested with version 0.12.0)
-* [VirtualBox](https://www.virtualbox.org/) (tested with version 5.1.8)
+* [packer](https://packer.io/) (tested with version 1.0.0)
+* [VirtualBox](https://www.virtualbox.org/) (tested with version 5.1.22)
 
 Build:
 
