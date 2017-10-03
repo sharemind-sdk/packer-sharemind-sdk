@@ -25,7 +25,7 @@ sharemind_build() {
     git clone "${REPO_URL}" "${REPO_PATH}"
 
     local CWD=`pwd`; cd "${REPO_PATH}"
-    git reset --hard "${REPO_REV}"
+    git checkout "${REPO_REV}"
 
     cp --no-preserve=mode,ownership,timestamps "${CONFIG_PATH}" "${REPO_PATH}/config.local"
     sed -i "s#SET(SHAREMIND_INSTALL_PREFIX \"\${CMAKE_CURRENT_SOURCE_DIR}/prefix\")#SET(SHAREMIND_INSTALL_PREFIX \"${INSTALL_PATH}\")#" "${REPO_PATH}/config.local"
