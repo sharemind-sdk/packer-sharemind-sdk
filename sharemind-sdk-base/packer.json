@@ -1,8 +1,8 @@
 {
     "variables": {
         "headless": "true",
-        "iso_url": "https://cdimage.debian.org/cdimage/archive/8.8.0/amd64/iso-cd/debian-8.8.0-amd64-netinst.iso",
-        "iso_checksum": "27e41f13ce0f71e0fc503da41f3afa87285e0fc2e8ffb8d7ff4f572e26451dafd1a6f220c9256731d451400893437b0dfc17534c441f2a29a81130c59f790a50",
+        "iso_url": "https://cdimage.debian.org/debian-cd/9.1.0/amd64/iso-cd/debian-9.1.0-amd64-netinst.iso",
+        "iso_checksum": "697600a110c7a5a1471fbf45c8030dd99b3c570db612044730f09b4624aa49f2a3d79469d55f1c18610c2414e9fffde1533b9a6fab6f3af4b5ba7c2d59003dc1",
         "iso_checksum_type": "sha512",
         "output_directory": "output",
         "ssh_password": "sharemind",

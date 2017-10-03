@@ -8,7 +8,7 @@ The following packer builders are currently supported:
 
 Requirements:
 
-* [packer](https://packer.io/) (tested with version 1.0.0)
+* [packer](https://packer.io/) (tested with version 1.1.0)
 * [VirtualBox](https://www.virtualbox.org/) (tested with version 5.1.22)
 
 Build:
