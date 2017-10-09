@@ -61,7 +61,7 @@
             "vboxmanage": [
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_cpus` }}"],
                 ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_memory` }}"],
-                ["modifyvm", "{{ .Name }}", "--vram", "12"]
+                ["modifyvm", "{{ .Name }}", "--vram", "32"]
             ],
             "vboxmanage_post": [
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],
