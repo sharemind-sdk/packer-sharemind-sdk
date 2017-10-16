@@ -6,8 +6,6 @@ Virtual machine
 
 * Username/password: sharemind/sharemind.
 * Use sudo, for root access.
-* Use update_sdk.sh to pull, build and install SDK updates from github.com.
-
 
 Documentation
 -------------
