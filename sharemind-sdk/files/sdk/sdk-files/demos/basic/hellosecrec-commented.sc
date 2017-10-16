@@ -105,7 +105,7 @@ void float64_test(uint s) {
 
 // The classical entry point to the program
 void main() {
-    uint s = 100000;
+    uint s = 100;
 
     print("Vector size: ", s);
 
