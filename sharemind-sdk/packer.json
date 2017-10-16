@@ -4,7 +4,7 @@
         "files_destination": "/tmp/files",
         "output_directory": "output",
         "release_tag": "2017.09",
-        "profile_log_visualizer_reporev": "8a054226bfa80c0297cc42779db9c2730c33b6b7",
+        "profile_log_visualizer_reporev": "aa0827a5a4628f685c43ff6ecc6b4242d256b72f",
         "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
         "ssh_password": "sharemind",
