@@ -50,7 +50,7 @@ void float64_test(uint s) {
 }
 
 void main() {
-    uint s = 100000;
+    uint s = 100;
 
     print("Vector size: ", s);
 
