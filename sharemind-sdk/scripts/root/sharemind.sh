@@ -9,7 +9,7 @@ test -n "${SM_INSTALL_PATH}"
 test -n "${SM_CONFIG_PATH}"
 
 # Install packages
-apt-get install --yes cmake git make gcc g++ libbz2-dev libcrypto++-dev libbison-dev flex libmpfr-dev libhdf5-dev libssl-dev
+apt-get install --yes cmake git make gcc g++ libbz2-dev libcrypto++-dev libbison-dev flex libmpfr-dev libhdf5-dev libhiredis-dev libssl-dev
 apt-get install --yes libboost-filesystem-dev libboost-iostreams-dev libboost-program-options-dev libboost-system-dev libboost-thread-dev
 apt-get install --yes --no-install-recommends doxygen
 apt-get install --yes help2man redis-server
