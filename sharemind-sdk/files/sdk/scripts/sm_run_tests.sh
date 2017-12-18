@@ -6,7 +6,7 @@ fi
 
 echo "Using BUILD_SDK_PREFIX='${BUILD_SDK_PREFIX}'"
 
-STDLIB="${BUILD_SDK_PREFIX}/stdlib"
+STDLIB="${BUILD_SDK_PREFIX}/secrec-stdlib"
 TESTS="${STDLIB}/tests"
 
 if [ "x${SHAREMIND_INSTALL_PREFIX}" = "x" ]; then
