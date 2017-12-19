@@ -15,7 +15,7 @@
         "vm_export_memory": "1024",
         "vm_hostname": "sharemind-sdk",
         "vm_memory": "1024",
-        "vm_name": "sharemind-sdk-base",
+        "vm_name": "sharemind-sdk-base-debian-9.2.1-amd64",
         "vm_user_fullname": "Sharemind-SDK"
     },
     "builders": [
