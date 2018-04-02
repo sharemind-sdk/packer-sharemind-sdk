@@ -1,9 +1,10 @@
 {
     "variables": {
         "headless": "true",
+        "debian_version": "9.4.0",
+        "release_tag": "release_2018.03_rc2",
+        "platform_release_version": "2018.03",
         "files_destination": "/tmp/files",
-        "output_directory": "output",
-        "release_tag": "2017.12",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
         "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
@@ -16,10 +17,7 @@
         "vm_export_producturl": "https://sharemind.cyber.ee/",
         "vm_export_vendor": "Cybernetica AS",
         "vm_export_vendorurl": "https://cyber.ee/",
-        "vm_export_version": "2017.12",
-        "vm_memory": "1024",
-        "vm_name": "2017.12-sharemind-sdk-debian-9.2.1-amd64",
-        "vm_source_path": "../sharemind-sdk-base/output/sharemind-sdk-base-debian-9.2.1-amd64.ova"
+        "vm_memory": "1024"
     },
     "builders": [
         {
@@ -30,14 +28,14 @@
                 "--producturl", "{{ user `vm_export_producturl` }}",
                 "--vendor", "{{ user `vm_export_vendor` }}",
                 "--vendorurl", "{{ user `vm_export_vendorurl` }}",
-                "--version", "{{ user `vm_export_version` }}"
+                "--version", "{{ user `platform_release_version` }}"
             ],
             "format": "ova",
-            "guest_additions_mode": "upload",
             "headless": "{{ user `headless` }}",
-            "output_directory": "{{ user `output_directory` }}",
+            "guest_additions_mode": "upload",
+            "output_directory": "output-debian-{{ user `debian_version` }}",
             "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
-            "source_path": "{{ user `vm_source_path` }}",
+            "source_path": "../sharemind-sdk-base/output-debian-{{ user `debian_version` }}-base/sharemind-sdk-debian-{{ user `debian_version` }}-base.ova",
             "ssh_password": "{{ user `ssh_password` }}",
             "ssh_username": "{{ user `ssh_username` }}",
             "vboxmanage": [
@@ -48,7 +46,7 @@
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],
                 ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_export_memory` }}"]
             ],
-            "vm_name": "{{ user `vm_name` }}"
+            "vm_name": "sharemind-sdk-{{ user `release_tag` }}"
         }
     ],
     "provisioners": [
@@ -80,7 +78,7 @@
                 "SM_CONFIG_PATH={{ user `files_destination` }}/sharemind/config.local",
                 "SM_INSTALL_PATH=/usr/local/sharemind",
                 "SM_REPO_PATH=/usr/local/src/sharemind-sdk.git",
-                "SM_REPO_REV={{ user `release_tag` }}",
+                "SM_REPO_REV=master",
                 "SM_REPO_URL={{ user `sharemind_repourl` }}"
             ],
             "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
