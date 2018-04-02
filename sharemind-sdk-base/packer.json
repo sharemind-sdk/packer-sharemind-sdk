@@ -1,10 +1,9 @@
 {
     "variables": {
         "headless": "true",
-        "iso_url": "http://cdimage.debian.org/cdimage/archive/9.2.1/amd64/iso-cd/debian-9.2.1-amd64-netinst.iso",
-        "iso_checksum": "ebfe25dc593967e39349b205480b0ec0103ef4a0468c602f4857e13d06d407bfe876162399e0e8d4dea5675953dc37ab585316f307ccf9f4440124b4f719df04",
+        "debian_version": "9.4.0",
+        "iso_checksum": "345c4e674dc10476e8c4f1571fbcdba4ce9788aa5584c5e2590ab3e89e7bb9acb370536f41a3ac740eb92b6aebe3cb8eb9734874dd1658c68875981b8351bc38",
         "iso_checksum_type": "sha512",
-        "output_directory": "output",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
         "ssh_wait_timeout": "60m",
@@ -15,12 +14,14 @@
         "vm_export_memory": "1024",
         "vm_hostname": "sharemind-sdk",
         "vm_memory": "1024",
-        "vm_name": "sharemind-sdk-base-debian-9.2.1-amd64",
         "vm_user_fullname": "Sharemind-SDK"
     },
     "builders": [
         {
             "type": "virtualbox-iso",
+            "iso_checksum": "{{ user `iso_checksum` }}",
+            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+            "iso_url": "http://cdimage.debian.org/debian-cd/{{ user `debian_version` }}/amd64/iso-cd/debian-{{ user `debian_version` }}-amd64-netinst.iso",
             "boot_command": [
                 "<esc><wait>",
                 "install <wait>",
@@ -50,10 +51,7 @@
             "guest_os_type": "Debian_64",
             "headless": "{{ user `headless` }}",
             "http_directory": "http",
-            "iso_checksum": "{{ user `iso_checksum` }}",
-            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
-            "iso_url": "{{ user `iso_url` }}",
-            "output_directory": "{{ user `output_directory` }}",
+            "output_directory": "output-debian-{{ user `debian_version` }}-base",
             "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
             "ssh_password": "{{ user `ssh_password` }}",
             "ssh_username": "{{ user `ssh_username` }}",
@@ -67,7 +65,7 @@
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],
                 ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_export_memory` }}"]
             ],
-            "vm_name": "{{ user `vm_name` }}"
+            "vm_name": "sharemind-sdk-debian-{{ user `debian_version` }}-base"
         }
     ],
     "provisioners": [
