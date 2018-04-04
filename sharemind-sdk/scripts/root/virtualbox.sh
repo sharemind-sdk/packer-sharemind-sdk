@@ -16,4 +16,7 @@ if test -f .vbox_version; then
     umount /mnt/vboxguestadditions
     rmdir /mnt/vboxguestadditions
     rm VBoxGuestAdditions.iso
+
+    # Add the sharemind user to the vboxsf group so they can access shared folders with no manual work.
+    usermod -a -G vboxsf sharemind
 fi
