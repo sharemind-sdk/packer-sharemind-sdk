@@ -9,7 +9,7 @@ void scanDB(string pattern) {
     ScanCursor sc = keydb_scan(pattern);
     while(sc.cursor != 0) {
         print(sc.key);
-        sc = keydb_scan_next(sc.cursor);
+        sc = keydb_scan_next(sc);
     }
 }
 
@@ -18,7 +18,7 @@ void deleteFromDB(string pattern) {
     while(sc.cursor != 0) {
         print("Deleting key: ", sc.key);
         keydb_del(sc.key);
-        sc = keydb_scan_next(sc.cursor);
+        sc = keydb_scan_next(sc);
     }
 }
 
