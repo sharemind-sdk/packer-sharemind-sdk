@@ -2,7 +2,7 @@
     "variables": {
         "headless": "true",
         "debian_version": "9.4.0",
-        "release_tag": "release_2018.03_rc2",
+        "release_tag": "release_2018.03",
         "platform_release_version": "2018.03",
         "files_destination": "/tmp/files",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
