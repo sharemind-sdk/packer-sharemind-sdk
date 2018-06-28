@@ -106,6 +106,7 @@
         },
         {
             "type": "shell",
+            "expect_disconnect": true,
             "environment_vars": [
                 "CLEANUP_ZEROFREE_SERVICE={{ user `files_destination` }}/cleanup/zerofree",
                 "CLEANUP_ZEROFREE_SYSTEMD_SERVICE={{ user `files_destination` }}/cleanup/zerofree.service"
