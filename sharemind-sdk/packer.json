@@ -1,7 +1,7 @@
 {
     "variables": {
         "headless": "true",
-        "debian_version": "9.4.0",
+        "debian_version": "9.5.0",
         "release_tag": "release_2018.06",
         "platform_release_version": "2018.06",
         "files_destination": "/tmp/files",

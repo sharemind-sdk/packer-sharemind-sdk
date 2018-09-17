@@ -8,6 +8,9 @@ if test -f .vbox_version; then
     # If libdbus is not installed, virtualbox will not autostart
     apt-get install --yes --no-install-recommends libdbus-1-3
 
+    # Install current kernel headers needed by guest additions separately
+    apt-get install --yes --no-install-recommends linux-headers-$(uname -r)
+
     # Install the VirtualBox guest additions, assumes "attached"
     mkdir /mnt/vboxguestadditions
     mount -t iso9660 -o loop VBoxGuestAdditions.iso /mnt/vboxguestadditions
