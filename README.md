@@ -1,18 +1,46 @@
-Building the VM-s requires Packer.
+# Sharemind SDK virtual machine build configuration
 
-It can be obtained from https://releases.hashicorp.com/packer/ .
+The following packer builders are currently supported:
 
-Accessing repos in intranet over SSH requires key-based access via ssh-agent.
+* VirtualBox
 
-1. Build the base VM
-`cd ../base; packer build packer.json`
+## Build instructions
 
-2. Build the base-gui VM
-`cd ../base-gui; packer build packer.json`
+Requirements:
 
-2. Build the Sharemind SDK VM-s
-`cd ../sharemind-sdk`
-`packer build -color=false -var-file=variables.json packer-appserv.json | tee packer-appserv-log.txt 2>&1`
-`packer build -color=false -var-file=variables.json packer-appserv-rmind.json | tee packer-appserv-rmind-log.txt 2>&1`
-`packer build -color=false -var-file=variables.json packer-acadserv.json | tee packer-acadserv-log.txt 2>&1`
-`packer build -color=false -var-file=variables.json packer-acadserv-rmind.json | tee packer-acadserv-rmind-log.txt 2>&1`
+* [packer](https://packer.io/) (tested with version 1.2.3)
+* [VirtualBox](https://www.virtualbox.org/) (tested with version 5.2.10)
+
+Build:
+
+```bash
+# Build the base image
+cd sharemind-sdk-base
+packer build packer.json
+cd ..
+
+# Build the SDK from the base image
+cd sharemind-sdk
+packer build packer.json
+```
+
+## Copyright and license
+
+```
+Copyright (C) 2018 Cybernetica
+
+Research/Commercial License Usage
+Licensees holding a valid Research License or Commercial License
+for the Software may use this file according to the written
+agreement between you and Cybernetica.
+
+GNU General Public License Usage
+Alternatively, this file may be used under the terms of the GNU
+General Public License version 3.0 as published by the Free Software
+Foundation and appearing in the file LICENSE.GPL included in the
+packaging of this file.  Please review the following information to
+ensure the GNU General Public License version 3.0 requirements will be
+met: http://www.gnu.org/copyleft/gpl-3.0.html.
+
+For further information, please contact us at sharemind@cyber.ee.
+```
