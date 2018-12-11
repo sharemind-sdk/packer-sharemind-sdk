@@ -9,8 +9,8 @@ apt-get clean
 apt-get update
 apt-get upgrade --yes
 
-# Update the kernel
-apt-get install --yes linux-image-amd64
+# Make sure the versions of the kernel and headers match.
+apt-get install --yes linux-image-4.9.0-8-amd64 linux-headers-4.9.0-8-all
 
 # Install dependencies
 apt-get install --yes vim
