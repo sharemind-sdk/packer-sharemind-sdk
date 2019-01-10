@@ -2,8 +2,8 @@
     "variables": {
         "headless": "true",
         "debian_version": "9.6.0",
-        "release_tag": "release_2018.12",
-        "platform_release_version": "2018.12",
+        "release_tag": "release_2018.12.1",
+        "platform_release_version": "2018.12.1",
         "files_destination": "/tmp/files",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
         "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",

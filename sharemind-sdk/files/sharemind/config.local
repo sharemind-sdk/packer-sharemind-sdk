@@ -31,5 +31,5 @@ ENDMACRO()
 
 FUNCTION(Thing_OVERRIDE name)
   Thing_removeArgs("${ARGN}" GIT_TAG args)
-  Thing_addFromOverride("${name}" ${args} GIT_TAG "release_2018.12")
+  Thing_addFromOverride("${name}" ${args} GIT_TAG "release_2018.12.1")
 ENDFUNCTION()
