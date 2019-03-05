@@ -115,7 +115,8 @@
             "scripts": [
                 "scripts/root/virtualbox.sh",
                 "scripts/root/cleanup.sh",
-                "scripts/root/reboot.sh"
+                "scripts/root/reboot.sh",
+                "scripts/root/ssh-key-cleanup.sh"
             ]
         }
     ]
