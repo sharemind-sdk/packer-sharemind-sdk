@@ -5,6 +5,7 @@
         "release_tag": "release_2018.12.1",
         "platform_release_version": "2018.12.1",
         "files_destination": "/tmp/files",
+        "sharemind_install_path":"/usr/local/sharemind",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
         "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
@@ -76,7 +77,7 @@
                 "SDK_SCRIPTS_PATH={{ user `files_destination` }}/sdk/scripts",
                 "SM_BUILD_PATH=/usr/local/src/sharemind-sdk.git/build",
                 "SM_CONFIG_PATH={{ user `files_destination` }}/sharemind/config.local",
-                "SM_INSTALL_PATH=/usr/local/sharemind",
+                "SM_INSTALL_PATH={{ user `sharemind_install_path` }}",
                 "SM_REPO_PATH=/usr/local/src/sharemind-sdk.git",
                 "SM_REPO_REV=master",
                 "SM_REPO_URL={{ user `sharemind_repourl` }}"
@@ -93,6 +94,7 @@
         {
             "type": "shell",
             "environment_vars": [
+                "SM_INSTALL_PATH={{ user `sharemind_install_path` }}",
                 "SDK_FILES_PATH={{ user `files_destination` }}/sdk/sdk-files",
                 "SDK_DESKTOP_ICONS_PATH={{ user `files_destination` }}/sdk/Desktop",
                 "SDK_SM_CONFIG_PATH={{ user `files_destination` }}/sdk/sharemind-config",
