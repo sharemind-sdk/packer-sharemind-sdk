@@ -20,5 +20,3 @@ cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_SM_CONFIG_PATH}/."
 cp /usr/local/sharemind/bin/*.cfg ~/.config/sharemind
 # Install shared3p_emu configuration files
 cp /usr/local/src/sharemind-sdk.git/mod_shared3p_emu/packaging/configs/sharemind/*.conf ~/.config/sharemind
-# Expand ModelEvaluatorConfiguration configs to full paths
-sed -i "s+ModelEvaluatorConfiguration\s\=\s+ModelEvaluatorConfiguration = $(readlink -f ~/.config/sharemind)/+" ~/.config/sharemind/*

@@ -71,7 +71,7 @@
                 "PV_REPO_URL={{ user `profile_log_visualizer_repourl` }}",
                 "PV_INSTALL_PATH=/usr/local",
                 "PV_SCRIPTS_PATH={{ user `files_destination` }}/profile-visualizer/scripts",
-                "QTCREATOR_SECREC_MIME_PATH={{ user `files_destination` }}/qtcreator/mime/secrec.xml",
+                "QTCREATOR_SECREC_MIME_PATH={{ user `sharemind_install_path` }}/share/mime/packages/secrec.xml",
                 "SDK_BG_IMG_PATH={{ user `files_destination` }}/sdk/desktop-bg-emulator.png",
                 "SDK_INSTALL_PATH=/usr/local",
                 "SDK_SCRIPTS_PATH={{ user `files_destination` }}/sdk/scripts",
