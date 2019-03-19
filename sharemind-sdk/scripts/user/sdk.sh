@@ -20,3 +20,7 @@ cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_SM_CONFIG_PATH}/."
 cp /usr/local/sharemind/bin/*.cfg ~/.config/sharemind
 # Install shared3p_emu configuration files
 cp /usr/local/src/sharemind-sdk.git/mod_shared3p_emu/packaging/configs/sharemind/*.conf ~/.config/sharemind
+# Expand ModelEvaluatorConfiguration lines to full paths for modules that don't support %{CurrentFileDirectory}
+for config in aby_emu.cfg spdz_fresco_emu.cfg; do
+    sed -i "s+ModelEvaluatorConfiguration\s\=\s+ModelEvaluatorConfiguration = $(readlink -f ~/.config/sharemind)/+" ~/.config/sharemind/$config
+done;
