@@ -2,8 +2,8 @@
     "variables": {
         "headless": "true",
         "debian_version": "9.8.0",
-        "release_tag": "release_2018.12.1",
-        "platform_release_version": "2018.12.1",
+        "release_tag": "release_2019.03",
+        "platform_release_version": "2019.03",
         "files_destination": "/tmp/files",
         "sharemind_install_path":"/usr/local/sharemind",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
