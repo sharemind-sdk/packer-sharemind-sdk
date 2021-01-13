@@ -24,6 +24,13 @@ visualizer_build() {
 
     cd "${REPO_PATH}"
     npm install "--prefix=${INSTALL_PATH}" -g
+
+    # For some reason Electron fails to start because it's missing a `patch.txt` file.
+    # We'll re-download an archive containing this file.
+    # https://github.com/electron-userland/electron-prebuilt/issues/76#issuecomment-204650296
+    cd node_modules/electron-prebuilt
+    npm run postinstall
+
     cd "${CWD}"
 }
 
