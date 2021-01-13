@@ -16,8 +16,10 @@ sed -i "s/^#autologin-user-timeout=0$/autologin-user-timeout=0/" /etc/lightdm/li
 sed -i "s/^wallpaper_mode=.*$/wallpaper_mode=${DE_DESKTOP_BG_MODE}/" /etc/xdg/pcmanfm/LXDE/pcmanfm.conf
 sed -i "s/^desktop_bg=.*$/desktop_bg=${DE_DESKTOP_BG_COLOR}/" /etc/xdg/pcmanfm/LXDE/pcmanfm.conf
 
-cat <<EOF >> /etc/xdg/pcmanfm/LXDE/pcmanfm.conf
+# Hide Trash icon from desktop
+sed -i '/^\[desktop\]/a show_trash=0' /etc/xdg/pcmanfm/LXDE/pcmanfm.conf
 
-[desktop]
-show_trash=0
-EOF
+# /etc/xdg/libfm/libfm.conf
+# Disable the execute warning of .desktop files
+# This enables the "Don't ask option to launch executable file" checkbox in PCManFM preferences
+sed -i '/^\[config\]/a quick_exec=1' /etc/xdg/libfm/libfm.conf
