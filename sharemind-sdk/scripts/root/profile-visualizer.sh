@@ -8,14 +8,8 @@ test -n "${PV_INSTALL_PATH}"
 test -n "${PV_SCRIPTS_PATH}"
 
 # Install packages
-apt-get install --yes apt-transport-https
-
-wget --quiet -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-echo "deb https://deb.nodesource.com/node_4.x jessie main" | tee /etc/apt/sources.list.d/nodesource.list
-echo "deb-src https://deb.nodesource.com/node_4.x jessie main" | tee -a /etc/apt/sources.list.d/nodesource.list
-
 apt-get update
-apt-get install --yes nodejs libnss3-dev
+apt-get install --yes apt-transport-https nodejs npm libnss3-dev libgconf-2-4
 
 visualizer_build() {
     local REPO_URL="$1"
