@@ -16,11 +16,13 @@ cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_DESKTOP_ICONS_PATH
 # Install Sharemind configuration
 mkdir --parents ~/.config
 cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_SM_CONFIG_PATH}/." ~/.config/
-# Install Sharemind configurations created by build-sdk
-cp /usr/local/sharemind/bin/*.cfg ~/.config/sharemind
-# Install shared3p_emu configuration files
+
+# Copy *_emu configuration files
 cp /usr/local/src/sharemind-sdk.git/mod_shared3p_emu/packaging/configs/sharemind/*.conf ~/.config/sharemind
+cp /usr/local/src/sharemind-sdk.git/mod_aby_emu/packaging/configs/sharemind/*.conf ~/.config/sharemind
+cp /usr/local/src/sharemind-sdk.git/mod_spdz_fresco_emu/packaging/configs/sharemind/*.conf ~/.config/sharemind
+
 # Expand ModelEvaluatorConfiguration lines to full paths for modules that don't support %{CurrentFileDirectory}
-for config in aby_emu.cfg spdz_fresco_emu.cfg; do
-    sed -i "s+ModelEvaluatorConfiguration\s\=\s+ModelEvaluatorConfiguration = $(readlink -f ~/.config/sharemind)/+" ~/.config/sharemind/$config
-done;
+# for config in aby_emu.cfg spdz_fresco_emu.cfg; do
+#     sed -i "s+ModelEvaluatorConfiguration\s\=\s+ModelEvaluatorConfiguration = $(readlink -f ~/.config/sharemind)/+" ~/.config/sharemind/$config
+# done;
