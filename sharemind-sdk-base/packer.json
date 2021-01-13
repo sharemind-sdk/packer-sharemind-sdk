@@ -6,7 +6,7 @@
         "iso_checksum_type": "sha512",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
-        "ssh_wait_timeout": "60m",
+        "ssh_timeout": "60m",
         "vm_cpus": "2",
         "vm_disk": "50000",
         "vm_domain": "sharemind-sdk",
@@ -19,8 +19,7 @@
     "builders": [
         {
             "type": "virtualbox-iso",
-            "iso_checksum": "{{ user `iso_checksum` }}",
-            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+            "iso_checksum": "{{ user `iso_checksum_type` }}:{{ user `iso_checksum` }}",
             "iso_url": "http://cdimage.debian.org/debian-cd/{{ user `debian_version` }}/amd64/iso-cd/debian-{{ user `debian_version` }}-amd64-netinst.iso",
             "boot_command": [
                 "<esc><wait>",
@@ -55,7 +54,7 @@
             "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
             "ssh_password": "{{ user `ssh_password` }}",
             "ssh_username": "{{ user `ssh_username` }}",
-            "ssh_wait_timeout": "{{ user `ssh_wait_timeout` }}",
+            "ssh_timeout": "{{ user `ssh_timeout` }}",
             "vboxmanage": [
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_cpus` }}"],
                 ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_memory` }}"],
