@@ -1,8 +1,8 @@
 {
     "variables": {
         "headless": "true",
-        "debian_version": "9.8.0",
-        "iso_checksum": "cc4a6bd50925c1c4af98049060e304494bc9da61eb5eb272c556d67608de14d4e6a4b8bc1c9412a0f810083912e228569f3771ffffa7174538f3e26f45a05245",
+        "debian_version": "10.7.0",
+        "iso_checksum": "cb6795ca61326e9fa58099898e53dc6c708f4b1473687fab5679f824adc78bbe1d543f3b4aed9e56613e7b150e27d6be317efc499e25a92efefed1ed623a90a6",
         "iso_checksum_type": "sha512",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",

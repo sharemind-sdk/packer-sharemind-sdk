@@ -14,7 +14,15 @@ if test -f .vbox_version; then
     # Install the VirtualBox guest additions, assumes "attached"
     mkdir /mnt/vboxguestadditions
     mount -t iso9660 -o loop VBoxGuestAdditions.iso /mnt/vboxguestadditions
-    sh /mnt/vboxguestadditions/VBoxLinuxAdditions.run --nox11
+
+    # This script is apparently broken for an eternity.
+    # https://stackoverflow.com/questions/25434139/vboxlinuxadditions-run-never-exits-with-0
+    # (note: the module is not in `.../extra/...` but in `.../misc/...`
+    bash -x /mnt/vboxguestadditions/VBoxLinuxAdditions.run --nox11 || true
+    if ! test -f /lib/modules/$(uname -r)/misc/vboxsf.ko; then
+        echo "installation of guest additions unsuccessful"
+        exit 1
+    fi
     sleep 1
     umount /mnt/vboxguestadditions
     rmdir /mnt/vboxguestadditions
