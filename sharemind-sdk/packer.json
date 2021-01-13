@@ -82,7 +82,7 @@
                 "SM_REPO_REV=master",
                 "SM_REPO_URL={{ user `sharemind_repourl` }}"
             ],
-            "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+            "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -H -S sh '{{ .Path }}'",
             "scripts": [
                 "scripts/root/sharemind.sh",
                 "scripts/root/profile-visualizer.sh",
@@ -113,7 +113,7 @@
                 "CLEANUP_ZEROFREE_SERVICE={{ user `files_destination` }}/cleanup/zerofree",
                 "CLEANUP_ZEROFREE_SYSTEMD_SERVICE={{ user `files_destination` }}/cleanup/zerofree.service"
             ],
-            "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+            "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -H -S sh '{{ .Path }}'",
             "scripts": [
                 "scripts/root/virtualbox.sh",
                 "scripts/root/cleanup.sh",
