@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/bin/iceweasel -new-window file:///usr/local/sharemind/share/doc/sharemind/stdlib/html/index.html
+Exec=/usr/bin/firefox -new-window file:///usr/local/sharemind/share/doc/sharemind/stdlib/html/index.html
 Icon=web-browser
 Type=Application
 Terminal=false

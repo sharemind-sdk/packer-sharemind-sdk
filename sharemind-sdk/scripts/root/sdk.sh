@@ -5,9 +5,6 @@ test -n "${SDK_BG_IMG_PATH}"
 test -n "${SDK_INSTALL_PATH}"
 test -n "${SDK_SCRIPTS_PATH}"
 
-# Install dependencies
-apt-get install --yes iceweasel
-
 # Install desktop-background
 # TODO png -> svg
 cp --no-preserve=mode,ownership,timestamps "${SDK_BG_IMG_PATH}" /usr/share/images/desktop-base/sharemind-sdk-wallpaper.png
