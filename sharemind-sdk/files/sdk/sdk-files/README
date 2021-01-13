@@ -11,7 +11,7 @@ Documentation
 -------------
 
 * Run 'man sharemind-emulator', for the Sharemind emulator documentation.
-* SecreC language and standard library documentation can be found at /usr/local/sharemind/share/doc/sharemind/stdlib/html/index.html or http://sharemind-sdk.github.io/stdlib/reference/.
+* SecreC language and standard library documentation can be found at /usr/local/sharemind/share/doc/sharemind/stdlib/html/index.html or https://sharemind-sdk.github.io/stdlib/reference/.
 
 
 SDK tools

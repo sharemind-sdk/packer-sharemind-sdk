@@ -2,8 +2,8 @@
     "variables": {
         "headless": "true",
         "debian_version": "10.7.0",
-        "release_tag": "release_2019.03",
-        "platform_release_version": "2019.03",
+        "release_tag": "release_2020.12",
+        "platform_release_version": "2020.12",
         "files_destination": "/tmp/files",
         "sharemind_install_path":"/usr/local/sharemind",
         "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
@@ -18,7 +18,7 @@
         "vm_export_producturl": "https://sharemind.cyber.ee/",
         "vm_export_vendor": "Cybernetica AS",
         "vm_export_vendorurl": "https://cyber.ee/",
-        "vm_memory": "2048"
+        "vm_memory": "3072"
     },
     "builders": [
         {
