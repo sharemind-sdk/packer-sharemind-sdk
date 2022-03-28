@@ -1,13 +1,14 @@
 {
     "variables": {
         "headless": "true",
-        "debian_version": "10.7.0",
-        "release_tag": "release_2020.12",
-        "platform_release_version": "2020.12",
+        "debian_version": "11.2.0",
+        "release_tag": "release_2022.03",
+        "platform_release_version": "2022.03",
         "files_destination": "/tmp/files",
         "sharemind_install_path":"/usr/local/sharemind",
-        "profile_log_visualizer_reporev": "a33df696382c173e2b6a8e2e5ced24b11a9ab237",
+        "profile_log_visualizer_reporev": "{{ user `release_tag` }}",
         "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
+        "sharemind_reporev": "{{ user `release_tag` }}",
         "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
         "ssh_password": "sharemind",
         "ssh_username": "sharemind",
@@ -79,7 +80,7 @@
                 "SM_CONFIG_PATH={{ user `files_destination` }}/sharemind/config.local",
                 "SM_INSTALL_PATH={{ user `sharemind_install_path` }}",
                 "SM_REPO_PATH=/usr/local/src/sharemind-sdk.git",
-                "SM_REPO_REV=master",
+                "SM_REPO_REV={{ user `sharemind_reporev` }}",
                 "SM_REPO_URL={{ user `sharemind_repourl` }}"
             ],
             "execute_command": "echo '{{ user `ssh_password` }}' | {{ .Vars }} sudo -E -H -S sh '{{ .Path }}'",
