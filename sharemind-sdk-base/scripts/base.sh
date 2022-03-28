@@ -30,3 +30,8 @@ GRUB_HIDDEN_TIMEOUT=3
 GRUB_HIDDEN_TIMEOUT_QUIET=false
 EOF
 update-grub
+
+# Make systemd wait before trying to restart SSH on failure.
+# Generating SSH host keys takes time (about a second) and by default
+# systemd retries to start sshd 5 times with only 100 ms delay.
+sed -i '/^Restart=/a RestartSec=2' /usr/lib/systemd/system/ssh.service
