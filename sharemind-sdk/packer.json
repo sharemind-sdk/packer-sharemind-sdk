@@ -102,6 +102,7 @@
             ],
             "scripts": [
                 "scripts/user/desktop-environment.sh",
+                "scripts/user/retext.sh",
                 "scripts/user/qtcreator.sh",
                 "scripts/user/sdk.sh"
             ]

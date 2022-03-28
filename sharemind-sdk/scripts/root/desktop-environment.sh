@@ -6,7 +6,7 @@ test -n "${DE_DESKTOP_BG_COLOR}"
 test -n "${DE_DESKTOP_BG_MODE}"
 
 # Install dependencies
-apt-get install --yes lxde
+apt-get install --yes lxde retext
 
 # /etc/lightdm/lightdm.conf
 sed -i "s/^#autologin-user=$/autologin-user=${DE_AUTOLOGIN_USERNAME}/" /etc/lightdm/lightdm.conf
