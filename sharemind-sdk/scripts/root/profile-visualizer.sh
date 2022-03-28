@@ -9,7 +9,7 @@ test -n "${PV_SCRIPTS_PATH}"
 
 # Install packages
 apt-get update
-apt-get install --yes apt-transport-https nodejs npm libnss3-dev libgconf-2-4
+apt-get install --yes apt-transport-https nodejs npm libnss3-dev
 
 visualizer_build() {
     local REPO_URL="$1"
@@ -23,13 +23,12 @@ visualizer_build() {
     git reset --hard "${REPO_REV}"
 
     cd "${REPO_PATH}"
-    npm install "--prefix=${INSTALL_PATH}" -g
 
-    # For some reason Electron fails to start because it's missing a `patch.txt` file.
-    # We'll re-download an archive containing this file.
-    # https://github.com/electron-userland/electron-prebuilt/issues/76#issuecomment-204650296
-    cd node_modules/electron-prebuilt
-    npm run postinstall
+    # First install dependencies locally
+    npm install
+
+    # Secondly, install profile log visualizer globally (makes symlink)
+    npm install --prefix="${INSTALL_PATH}" -g
 
     cd "${CWD}"
 }
