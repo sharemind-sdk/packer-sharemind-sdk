@@ -1,4 +1,4 @@
-INCLUDE("${CMAKE_CURRENT_SOURCE_DIR}/profiles/DebianBullseye.cmake" REQUIRED)
+INCLUDE("${CMAKE_CURRENT_SOURCE_DIR}/profiles/DebianBookworm.cmake" REQUIRED)
 
 SET(SHAREMIND_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/prefix")
 
@@ -31,5 +31,5 @@ ENDMACRO()
 
 FUNCTION(Thing_OVERRIDE name)
   Thing_removeArgs("${ARGN}" GIT_TAG args)
-  Thing_addFromOverride("${name}" ${args} GIT_TAG "release_2022.03")
+  Thing_addFromOverride("${name}" ${args} GIT_TAG "release_2023.09")
 ENDFUNCTION()
