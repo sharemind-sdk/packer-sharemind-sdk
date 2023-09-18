@@ -9,8 +9,11 @@ test -n "${SDK_SM_CONFIG_PATH}"
 mkdir --parents ~/Sharemind-SDK
 cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_FILES_PATH}/." ~/Sharemind-SDK/
 
-# Install Desktop icons
+# Create a link to the SDK files on the Desktop
 mkdir --parents ~/Desktop
+ln -s "${HOME}/Sharemind-SDK" "${HOME}/Desktop/Sharemind-SDK"
+
+# Install Desktop icons
 cp --recursive --no-preserve=mode,ownership,timestamps "${SDK_DESKTOP_ICONS_PATH}/." ~/Desktop/
 
 # Install Sharemind configuration
