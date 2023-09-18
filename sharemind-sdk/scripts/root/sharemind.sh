@@ -41,10 +41,6 @@ sharemind_build() {
 
 sharemind_build "${SM_REPO_URL}" "${SM_REPO_PATH}" "${SM_REPO_REV}" "${SM_BUILD_PATH}" "${SM_INSTALL_PATH}" "${SM_CONFIG_PATH}"
 
-# Remove the scripts that do not work and would confuse the user.
-rm "${SM_INSTALL_PATH}/bin/runtests.sh"
-rm "${SM_INSTALL_PATH}/bin/runtests-emulator.sh"
-
 # /etc/bash.bashrc
 cat << EOF >> /etc/bash.bashrc
 if [ -z "\$PATH" ]; then
