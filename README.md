@@ -21,13 +21,14 @@ cd ..
 
 # Build the SDK from the base image
 cd sharemind-sdk
-packer build packer.json
+packer build -var-file=variables.json packer.json
+packer build -var-file=variables.json packer-minimize.json # optional, for shrinking VM image
 ```
 
 ## Copyright and license
 
 ```
-Copyright (C) 2022 Cybernetica
+Copyright (C) 2023 Cybernetica
 
 Research/Commercial License Usage
 Licensees holding a valid Research License or Commercial License

@@ -1,17 +1,13 @@
 #!/bin/bash
 set -e -x
 
-test -n "${CLEANUP_ZEROFREE_SYSTEMD_SERVICE}"
-test -n "${CLEANUP_ZEROFREE_SERVICE}"
-
-# Install packages
+# Install zerofree to be used in the "minimize" step
 apt-get install --yes zerofree
 
-# Install the zerofree service
-cp --no-preserve=ownership,timestamps "${CLEANUP_ZEROFREE_SERVICE}" /etc/init.d/
-cp --no-preserve=mode,ownership,timestamps "${CLEANUP_ZEROFREE_SYSTEMD_SERVICE}" /etc/systemd/system/
+apt-get clean
 
-systemctl enable zerofree.service
+# Remove /etc/resolv.conf
+rm -f /etc/resolv.conf
 
-# Run zerofree on next boot
-touch /zerofree
+# Discard unused blocks on a mounted filesystem
+fstrim -a -v

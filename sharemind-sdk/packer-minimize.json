@@ -1,0 +1,41 @@
+{
+    "builders": [
+        {
+            "type": "virtualbox-vm",
+            "export_opts": [
+                "--vsys", "0",
+                "--product", "{{ user `vm_export_product` }}",
+                "--producturl", "{{ user `vm_export_producturl` }}",
+                "--vendor", "{{ user `vm_export_vendor` }}",
+                "--vendorurl", "{{ user `vm_export_vendorurl` }}",
+                "--version", "{{ user `platform_release_version` }}"
+            ],
+            "format": "ova",
+            "headless": "{{ user `headless` }}",
+            "guest_additions_mode": "disable",
+            "output_directory": "output-debian-{{ user `debian_version` }}-min",
+            "post_shutdown_delay": "10s",
+            "vboxmanage": [
+                ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_cpus` }}"],
+                ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_memory` }}"]
+            ],
+            "vboxmanage_post": [
+                ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],
+                ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_export_memory` }}"]
+            ],
+            "vm_name": "sharemind-sdk-{{ user `release_tag` }}",
+            "communicator": "none",
+            "virtualbox_version_file": "",
+            "boot_wait": "2s",
+            "boot_command": [
+                "<esc><wait><esc><wait><esc><wait><esc><wait><esc><wait>",
+                "e<down><down><down><down><down><down><down><down><down><down><down><down><down><down>",
+                "<end> break=init",
+                "<leftCtrlOn>x<leftCtrlOff><wait10>",
+                "/root/usr/sbin/zerofree -v /dev/mapper/sharemind--sdk--vg-root <enter><wait5m>",
+                "<leftCtrlOn>c<leftCtrlOff><wait>",
+                "sync<enter><wait5>"
+            ]
+        }
+    ]
+}

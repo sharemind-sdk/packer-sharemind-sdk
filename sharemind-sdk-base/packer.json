@@ -10,7 +10,7 @@
         "vm_cpus": "2",
         "vm_disk": "50000",
         "vm_domain": "sharemind-sdk",
-        "vm_export_cpus": "1",
+        "vm_export_cpus": "2",
         "vm_export_memory": "1024",
         "vm_hostname": "sharemind-sdk",
         "vm_memory": "1024",
@@ -32,7 +32,7 @@
                 "kbd-chooser/method=us <wait>",
                 "netcfg/get_hostname={{ user `vm_hostname` }} <wait>",
                 "netcfg/get_domain={{ user `vm_domain` }} <wait>",
-                "fb=false <wait>",
+                "directfb/hw-accel=false <wait>",
                 "debconf/frontend=noninteractive <wait>",
                 "console-setup/ask_detect=false <wait>",
                 "console-keymaps-at/keymap=us <wait>",
@@ -49,6 +49,8 @@
             "guest_additions_mode": "disable",
             "guest_os_type": "Debian_64",
             "headless": "{{ user `headless` }}",
+            "hard_drive_discard": "true",
+            "hard_drive_nonrotational": "true",
             "http_directory": "http",
             "output_directory": "output-debian-{{ user `debian_version` }}-base",
             "shutdown_command": "echo '{{ user `ssh_password` }}' | sudo -S shutdown -P now",
@@ -58,7 +60,8 @@
             "vboxmanage": [
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_cpus` }}"],
                 ["modifyvm", "{{ .Name }}", "--memory", "{{ user `vm_memory` }}"],
-                ["modifyvm", "{{ .Name }}", "--vram", "32"]
+                ["modifyvm", "{{ .Name }}", "--vram", "32"],
+                ["modifyvm", "{{ .Name }}", "--graphicscontroller", "vmsvga"]
             ],
             "vboxmanage_post": [
                 ["modifyvm", "{{ .Name }}", "--cpus", "{{ user `vm_export_cpus` }}"],

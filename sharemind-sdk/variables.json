@@ -1,0 +1,22 @@
+{
+    "headless": "true",
+    "debian_version": "12.1.0",
+    "release_tag": "release_2023.09",
+    "platform_release_version": "2023.09",
+    "files_destination": "/tmp/files",
+    "sharemind_install_path":"/usr/local/sharemind",
+    "profile_log_visualizer_reporev": "{{ user `release_tag` }}",
+    "profile_log_visualizer_repourl": "https://github.com/sharemind-sdk/profile_log_visualizer.git",
+    "sharemind_reporev": "{{ user `release_tag` }}",
+    "sharemind_repourl": "https://github.com/sharemind-sdk/build-sdk.git",
+    "ssh_password": "sharemind",
+    "ssh_username": "sharemind",
+    "vm_cpus": "2",
+    "vm_export_cpus": "2",
+    "vm_export_memory": "1024",
+    "vm_export_product": "Sharemind SDK",
+    "vm_export_producturl": "https://sharemind.cyber.ee/",
+    "vm_export_vendor": "Cybernetica AS",
+    "vm_export_vendorurl": "https://cyber.ee/",
+    "vm_memory": "3072"
+}
